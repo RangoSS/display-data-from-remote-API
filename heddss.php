@@ -88,7 +88,7 @@ $usernames= isset($_SESSION['usernames']) ? $_SESSION['usernames'] : "";
 					<ul class="nav navbar-nav navbar-left">
 						<li><a id="home" href="display.php">Home</a></li>
 						<li><a id="" href="joined_tables.php">Joint</a></li>
-						<li><a id="" href="#">Service</a></li>
+						<li><a id="" href="deleting.php">Deleting</a></li>
 						<li><a id="" href="#">Contact</a></li>
 					</ul>
 				</div>
