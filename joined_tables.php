@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title> REST API</title>
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<?php
+include "heddss.php";
+echo "</br>";
+?>
 
-</head>
+
 <body>
 <div class="container">
 	<br/>
-	<h3 class="text-center"> your Api is perfect</h3>
+	<h3 class="text-center">all bookings by users displayed here</h3>
 	<br/>
 	<div align="right" style="margin_bottom:5px">
 		<button type="button" name="add_button"
@@ -25,11 +21,11 @@
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
-					<th>User Name</th>
-					<th>Address</th>
 					<th>Contact</th>
 					<th>Gender</th>
 					<th>Occupation</th>
+					<th>Date</th>
+					<th>Time</th>
 					
 				</tr>
 			</thead>
@@ -76,11 +72,11 @@
 	//this function runs automatical after receiving data
 	$(document).ready(function(){
 
-		fetch_data();  //this function fetch data from Fetch.php
-		function fetch_data(){
+		fetch_datas();  //this function fetch data from Fetch.php
+		function fetch_datas(){
         
         $.ajax({
-        	url:"getData.php",
+        	url:"display_joined_table.php",
         	success:function(data){
         		$('tbody').html(data);//this call table body from fetch.php and render results
         	}
