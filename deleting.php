@@ -7,11 +7,11 @@ echo "</br>";
 <body>
 <div class="container">
 	<br/>
-	<h3 class="text-center">all emmpoyee user acounts</h3>
+	<h3 class="text-center">Deleting Employees</h3>
 	<br/>
 	<div align="right" style="margin_bottom:5px">
 		<button type="button" name="add_button"
-  	    class="btn btn-warning btn-xs edit " id="add_button">Add</button></td>
+  	    class="btn btn-warning btn-xs edit " id="add_button" onclick=" $('#bobo').show()">Add</button></td>
   	
 	</div>
 
@@ -50,11 +50,11 @@ echo "</br>";
 				</div>
 				
 					<div class="form-group">
-						<label>Enter medicine</label>
-						<input type=" text" name="medicine" id="medicine" class="form-control"/>
+						<label>First Name</label>
+						<input type=" text" name="first_name" id="first_name" class="form-control"/>
 					</div>
 					<div class="form-group">
-						<label>Enter Quantity</label>
+						<label>Last Name</label>
 						<input type=" text" name="quantitys" id="quantitys" class="form-control"/>
 					</div>
 
@@ -67,12 +67,14 @@ echo "</br>";
 				
 			</form>
 		</div>
+
 <script type="text/javascript">
 
 	//this function runs automatical after receiving data
 	$(document).ready(function(){
 
 		fetch_data();  //this function fetch data from Fetch.php
+		addingData(); //function calling on page load
 		function fetch_data(){
         
         $.ajax({
@@ -82,6 +84,25 @@ echo "</br>";
         	}
         })
 		}
+
+		function addingData(){
+
+			var form_data=$(this).serialize();//this convert form data into url string
+			$.ajax({
+				url:"action.php",
+				method:"POST",
+				data:form_data,
+				success:function(data)
+				{
+					fetch_data()// we call the fetch all function
+                
+                if(data == 'insert'){
+                	alert('data has been inserted');
+                }
+				}
+			});
+		
+	}
         
 	});
 </script>
